@@ -22,8 +22,7 @@
 #divBooks tr> :first-child{
     width:10%;
 }
-#divBooks tr> :nth-child(2){
-    width:30%;
+#divBooks tr> :nth-child(2){ width:30%;
 }
 #divBooks tr{
     height:3em;
@@ -31,7 +30,7 @@
 #divCoachings table{
     border: 1px solid #ddd;
     margin: 0 auto;
-    max-width: 90%;
+    width: 80%;
     table-layout: auto;
 }
 #divCoachings td, #divCoachings th{

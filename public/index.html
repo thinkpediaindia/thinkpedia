@@ -6,8 +6,7 @@
     <link type="text/css" rel="stylesheet" href="LandPageCSS+JS/landPage1.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700" rel="stylesheet">
     <link href="User/app-content/app.css" rel="stylesheet" />
 </head>
 <body>
@@ -28,14 +27,44 @@
     </div>
     <div id="navShadow"></div>
 
-    <div id="divMain">
-        <div id="divContentUser">
+    <div class="divModalBg" id="divModalBg1">
+        <div class="divContentUser">
             <div>
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
                 <div ng-view></div>
             </div>
         </div>
     </div>
+    <div class="divModalBg" id="divModalBg2">
+        <div class="divContentUser">
+            <h1>Contact Us</h1>
+            <form name="form" ng-submit="vm.register()" role="form" id="formContactUs">
+                <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+                    <input type="text" name="Name" id="Name" class="floatingLabelsInput" ng-model="vm.user.Name" required />
+                    <label for="Name" class="floatingLabels">Name</label>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                    <input name="emailID" id="emailID" autocomplete="email" class="floatingLabelsInput" ng-model="vm.user.emailID" required />
+                    <label for="emailID" class="floatingLabels">Email Id</label>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                    <input type="text" maxlength="10" onkeypress="fPhoneNumber()" name="phoneNumber" class="floatingLabelsInput" id="phoneNumber" ng-model="vm.user.phoneNumber" required />
+                    <label for="phoneNumber" class="floatingLabels">Phone Number</label>
+                    <span>+91</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+                    <textarea rows="4" name="inputTextArea" form="formContactUs" id="inputTextArea" class="floatingLabelsInput" ng-model="vm.user.Message" required></textarea>
+                    <label for="inputTextArea" class="floatingLabels">Your Message</label>
+                </div>
+                <div class="form-actions">
+                    <button onclick="fHideModal2()" class="btn btn-primary">Cancel</button>
+                    <button type="submit" ng-disabled="vm.dataLoading" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
 
 
     <div id="divContent">
@@ -75,7 +104,44 @@
             </div>
         </div>
         <div id="p4" class="parallax">
-            <h1>About Us</h1>
+            <div class="divAboutUsLP">
+                <div class="colAULP col1AULP">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#" onclick="fShowContactUs()">Contact Us</a></li>
+                        <li><a href="#">We are hiring</a></li>
+                        <li><a href="#">Support/FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="colAULP col21AULP">
+                    <h3>Exams</h3>
+                    <ul>
+                        <li><a href="#">JEE Advance</a></li>
+                        <li><a href="#">JEE Mains</a></li>
+                        <li><a href="#">VITEEE</a></li>
+                        <li><a href="#">PET</a></li>
+                    </ul>
+                </div>
+                <div class="colAULP col22AULP">
+                    <h3>&nbsp;</h3>
+                    <ul>
+                        <li><a href="#">NEET</a></li>
+                        <li><a href="#">AIIMS</a></li>
+                        <li><a href="#">RPMT</a></li>
+                        <li><a href="#">AFMC</a></li>
+                    </ul>
+                </div>
+                <div class="colAULP col3AULP">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#">facebook</a></li>
+                        <li><a href="#">twitter</a></li>
+                        <li><a href="#">Google +</a></li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
 
     </div>
@@ -99,36 +165,47 @@
     <script src="User/register/register.controller.js"></script>
     <script>
         var flogin = function() {
-            document.getElementById('divMain').style.display = "block";
+            document.getElementById('divModalBg1').style.display = "block";
         };
-        var fregister = function() {
-            document.getElementById('divMain').style.display = "block";
 
+        var fregister = function() {
+            document.getElementById('divModalBg1').style.display = "block";
         };
-        var modal = document.getElementById('divMain');
+        var fShowContactUs = function() {
+            document.getElementById('divModalBg2').style.display = "block";
+        };
+        var modal1 = document.getElementById('divModalBg1');
+        var modal2 = document.getElementById('divModalBg2');
         window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == modal1) {
+                modal1.style.display = "none";
+            }
+            else if(event.target == modal2){
+                modal2.style.display = "none";
             }
         }
-    </script>
+        var fHideModal2 = function(){
+            modal2.style.display="none";
+        }
+        function fPhoneNumber(){
+            $('#phoneNumber').keypress(function(e) {
+                var a = [];
+                var k = e.which;
 
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '318220035190461',
-                xfbml      : true,
-                version    : 'v2.7'
+                for (var i = 48; i < 58; i++)
+                    a.push(i);
+
+                if (!(a.indexOf(k)>=0))
+                    e.preventDefault();
             });
-        };
+        }
+        function fPhoneNumber2(){
+            if($('#phoneNumber').value == "a") {
+                $('#phoneNumber').value = "";
+            }
+        }
 
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+
     </script>
 </body>
 </html>

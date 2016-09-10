@@ -1,8 +1,8 @@
-$("#navBar").css({'width': ($("#divMain").width() + 'px')});
-$("#navShadow").css({'width': ($("#divMain").width() + 'px')});
+$("#navBar").css({'width': ($("#divModalBg1").width() + 'px')});
+$("#navShadow").css({'width': ($("#divModalBg1").width() + 'px')});
 window.onresize=function() {
-    $("#navBar").css({'width': ($("#divMain").width() + 'px')});
-    $("#navShadow").css({'width': ($("#divMain").width() + 'px')});
+    $("#navBar").css({'width': ($("#divModalBg1").width() + 'px')});
+    $("#navShadow").css({'width': ($("#divModalBg1").width() + 'px')});
 };
 
 $('#inp').addClass('inp1');
@@ -29,8 +29,8 @@ $("#divContent").on('scroll', function () {
         $('#inp').removeClass('inpGreen');
     }
 
-    if ( calc > '0.9' ) {
-        $('#navShadow').css({ 'opacity': 0.9 });
+    if ( calc > '0.99' ) {
+        $('#navShadow').css({ 'opacity': 0.99 });
     } else if ( calc < '0' ) {
         $('#navShadow').css({ 'opacity': 0 });
     }

@@ -15,7 +15,10 @@ table.tableElig th,table.tableElig td{
     border:1px #ddd solid;
     text-align: center;
 }
-table.tableElig tr td:first-child, table.tableElig tr th:first-child{
+table.tableElig tr td:first-child{
+    width:4em;
+}
+table.tableElig tr th:first-child{
     width:4em;
 }
 

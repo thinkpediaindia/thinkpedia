@@ -17,15 +17,13 @@ table.tableDates td,table.tableDates tr,table.tableDates th{
     padding:0.4em;
 }
 #ImpDateButtonDiv{
-    width:100%;
+    width:2%;
     position: absolute;
-    left:0;
+    left:49%;
     z-index:1;
     bottom:  0.7em;
-    text-align: center;
 }
 #bDates{
-    margin: 0 auto;
     border-radius: 100%;
     z-index: 3;
     border:none;

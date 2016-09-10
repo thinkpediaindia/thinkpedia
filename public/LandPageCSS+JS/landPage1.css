@@ -22,6 +22,8 @@ head, body{
     z-index: 999;
     top:0;
     left:0;
+    font-family: Ubuntu, sans-serif;
+    font-weight: 300;
 }
 #nav{
     margin: 0 0.1em;
@@ -144,23 +146,26 @@ head, body{
 
 #divContent{
     perspective: 1px;
+    perspective-origin-x:100% ;
     transform-style: preserve-3d;
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
+    font-family: Ubuntu, sans-serif;
 }
 
 .parallax{
     position: relative;
-    padding: 25vh 10%;
     height: 100vh;
     width: 100%;
+    transform-origin-x:100% ;
     box-sizing: border-box;
     box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
     transform-style: inherit;
 }
 
 #p1{
+    padding: 25vh 10%;
     background: 50% 50% / cover;
     background-image: url("../ImagesLandPage/421124.jpg");
     background-attachment: fixed;
@@ -203,7 +208,6 @@ head, body{
     height:69vh;
     padding:0.8em 0.5em;
 
-
     display:flex;
     justify-content:space-around;
     align-items:center;
@@ -211,8 +215,7 @@ head, body{
 #p21{
     height:341px;
     width:303.8px;
-    background-color: #6ab344;
-
+    padding: 0 0.3em;
 }
 #imgP21{
     width:100%;
@@ -221,7 +224,7 @@ head, body{
 #p22{
     height:341px;
     width:303.8px;
-    background-color: #333333;
+    padding: 0 0.3em;
 }
 #imgP22{
     width: 100%;
@@ -230,11 +233,10 @@ head, body{
 #p23{
     height:341px;
     width:303.8px;
-    background-color: tomato;
+    padding: 0 0.3em;
 }
 #imgP23{
-    width: 70%;
-    margin-left: 14%;
+    width: 100%;
 }
 
 
@@ -244,7 +246,7 @@ head, body{
 }
 
 
-#p3:before{
+/*#p3:before{
     content:"";
     position: absolute;
     top: 0;
@@ -259,16 +261,21 @@ head, body{
     z-index:-1;
     text-align: center;
     width: 100vw;
-}
+}*/
 
 #p3{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    background: 50% 50% / cover;
+    background-image: url("../ImagesLandPage/library.jpg");
+    background-attachment: fixed;
 }
 
 #divImgTablet{
-    height: 60vh;
+    height: 70vh;
+    flex-grow: 1;
+    text-align: center;
 }
 #imgTablet{
     margin-top:0.4em;
@@ -277,25 +284,89 @@ head, body{
 #divDetails{
     color: white;
     font-size: 1.3em;
+    flex-grow: 1;
 }
 
 #p4{
-    background-color: #333;
-    height:50vh;
+    background-color: #111111;
+    color: wheat;
+    font-size: 1.1em;
+    height:13em;
+    padding:0;
+    font-weight: 300;
 }
+.divAboutUsLP{
+    height: 100%;
+}
+.colAULP{
+    box-sizing: border-box;
+    float: left;
+    height: 100%;
+    padding-top: 1em;
+    margin-left: calc((100% - 32em)/5);
+}
+.col1AULP{
+    width: 8em;
+}
+.col21AULP{
+    width: 8em;
+}
+.col22AULP{
+    width: 8em;
+}
+.col3AULP{
+    width: 8em;
+}
+
+.col1AULP > *{
+    margin-left:calc(50% - 3rem);
+}
+.col21AULP > *{
+    margin-left:calc(50% - 3rem);
+}
+.col22AULP > *{
+    margin-left:calc(50% - 3rem);
+}
+.col3AULP > *{
+    margin-left:calc(50% - 4rem);
+}
+
+.colAULP ul{
+    list-style-type: none;
+    padding:0;
+}
+.colAULP li{
+    padding:0.15em 0;
+    font-size: 1em;
+}
+.colAULP a{
+    text-decoration: none;
+    color: #eeeeee;
+}
+.colAULP a:hover{
+    color: white;
+}
+
+
 
 /*
 @media all and (min-width:980px){
 
 }*/
 
-@media only screen and (max-width:980px) and (min-width:730px){
+@media only screen and (max-width:980px) and (min-width:700px){
     #p21, #p22, #p23{
         height:341px;
     }
+    #divDetails{
+        padding-left: 0;
+    }
+    #divImgTablet{
+        margin-left: -5em;
+    }
 }
 
-@media only screen and (max-width:730px){
+@media only screen and (max-width:700px){
     #logoName{
         display: none;
     }
@@ -321,13 +392,12 @@ head, body{
         display: block;
         height: auto;
         padding: 0;
-        background-color: red;
     }
     #p21, #p22, #p23{
-        width:100%;
+        width:calc(100%);
         height: auto;
         margin: 0;
-        padding-bottom: 0.8em;
+        padding:0.1em 0;
         box-shadow:0 -1px 10px rgba(0, 0, 0, .7);
     }
     #p2 p{

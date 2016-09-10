@@ -1,8 +1,7 @@
-﻿@import url(http://fonts.googleapis.com/css?family=Montserrat);
-#divMain{
+﻿.divModalBg{
     display: none;
     padding:2em;
-    font-family: montserrat,"Lucida Console", Monaco, monospace;
+    font-family: Ubuntu, sans-serif;
     color: #333;
     z-index: 999;
     position: fixed;
@@ -13,11 +12,13 @@
     background-color: rgba(0,0,0,0.4);
 }
 
-#divContentUser{
+.divContentUser{
     width:18em;
-    margin:30px auto;
+    font-family: Ubuntu, sans-serif;
+    margin:30px calc(50% - 9em);
     padding:2em;
     background-color: #eee;
+    font-weight: 700;
     border-radius: 2px;
     border: 3px rgba(0,0,0,0.8) groove;
 
@@ -25,20 +26,24 @@
     line-height: 20px;
     box-shadow: 0 2px 15px 10px rgba(0, 0, 0, 0.8);
 }
+#divModalBg2 .divContentUser{
+    background-color: white;
+}
+
 .form-actions{
     text-align: center;
 }
 
-#divContentUser h2{
+.divContentUser h1{
     display: block;
-    font-size: 30px;
+    text-align: center;
 }
-#divContentUser label{
+.divContentUser label{
     display: inline-block;
     margin-bottom: 5px;
     font-weight: 700;
 }
-#divContentUser input{
+.divContentUser input{
     box-sizing: border-box;
     display: block;
     width:100%;
@@ -51,13 +56,10 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
-#divContentUser h2 {
-    text-align: center;
-}
-
-#divContentUser a {
+.divContentUser a {
     color: #fff;
     background: #27AE60;
     display: inline-block;
@@ -81,11 +83,11 @@
     outline: none;
     box-sizing: border-box;
 }
-#divContentUser a:hover, #divContentUser a:focus{
+.divContentUser a:hover, .divContentUser a:focus{
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
 
-#divContentUser button{
+.divContentUser button{
     color: #fff;
     background: #27AE60;
     width: 100px;
@@ -110,12 +112,12 @@
 }
 
 
-#divContentUser button:hover,#divContentUser button:focus{
+.divContentUser button:hover,.divContentUser button:focus{
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
 
 
-#divContentUser .btn.disabled, #divContentUser .btn[disabled], #divContentUser fieldset[disabled] .btn {
+.divContentUser .btn.disabled, .divContentUser .btn[disabled], .divContentUser fieldset[disabled] .btn {
     cursor: not-allowed;
     pointer-events: none;
     opacity: .65;
@@ -126,11 +128,11 @@
 
 
 
-#divContentUser .has-error .help-block, #divContentUser .has-error .control-label, #divContentUser .has-error .radio, #divContentUser .has-error .checkbox, #divContentUser .has-error .radio-inline, #divContentUser .has-error .checkbox-inline {
+.divContentUser .has-error .help-block, .divContentUser .has-error .control-label, .divContentUser .has-error .radio, .divContentUser .has-error .checkbox, .divContentUser .has-error .radio-inline, .divContentUser .has-error .checkbox-inline {
     color: #a94442;
 }
 
-#divContentUser .help-block {
+.divContentUser .help-block {
     display: block;
     margin-top: 5px;
     margin-bottom: 10px;
@@ -139,15 +141,88 @@
 
 
 
-#divContentUser .alert-danger {
+.divContentUser .alert-danger {
     background-color: #f2dede;
     border-color: #ebccd1;
     color: #a94442;
 }
-#divContentUser .alert {
+.divContentUser .alert {
     padding: 15px;
     margin-bottom: 20px;
     border: 1px solid transparent;
     border-radius: 4px;
 
+}
+
+
+
+/*for Contact Us*/
+.divContentUser form > div{
+    position: relative;
+}
+
+.floatingLabels{
+    position: absolute;
+    top:0.5em;
+    left:1em;
+    transition: all 80ms;
+    color:#999999;
+    padding: 0 0.2em;
+    cursor: text;
+}
+.floatingLabels + span{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    top:0.65em;
+    left:0.7em;
+    font-weight: 400;
+    padding-right: 0.25em;
+    border-right: 1px #888888 solid;
+}
+
+input:valid + .floatingLabels + span{
+    display: block;
+}
+
+
+input:focus + .floatingLabels, input:valid + .floatingLabels, textarea:focus + .floatingLabels, textarea:valid + .floatingLabels{
+    font-size: 0.8em;
+    top:-0.6em;
+    background-color: white;
+    left:0.5em;
+    color: tan;
+    line-height: 1em;
+}
+
+.floatingLabelsInput:not([type="radio"]):not([type="checkbox"]), .divContentUser textarea{
+    box-sizing: border-box;
+    display: block;
+    width:100%;
+    padding: 6px 12px;
+    font-family: Ubuntu, Monaco, monospace;
+    font-size: 1em;
+    font-weight: 500;
+    background-color: #fff;
+    height: 2.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1.5em;
+}
+
+#phoneNumber:valid{
+    padding-left: 3em !important;
+}
+
+.divContentUser textarea{
+    height: 5em !important;
+    max-width: 100%;
+    padding-top: 10px !important;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
 }
